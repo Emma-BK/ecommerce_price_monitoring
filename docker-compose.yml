@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: ecom_price_api
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URL=sqlite:///ecommerce_prices.db
+      - API_HOST=0.0.0.0
+      - API_DEBUG_MODE=False
+    # CMD pour lancer l'API (déjà définie dans le Dockerfile, mais modifiable ici si besoin)
+    # command: uvicorn api_predictions:app --host 0.0.0.0 --port 8000
+
+  # Optionnel : Postgresql pour la production
+  #
+  # db:
+  #   image: postgres:13
+  #   container_name: ecom_postgres
+  #   restart: always
+  #   environment:
+  #     POSTGRES_USER: admin
+  #     POSTGRES_PASSWORD: superSecret
+  #     POSTGRES_DB: ecommerce_db
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #
+  # Optionnel : Scraper Job et ML Training (en tâche de fond séparée de l'API)
+  #
+  # ml_worker:
+  #   build: .
+  #   container_name: ecom_ml_worker
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #   command: python ecommerce_price_prediction.py
+
+volumes:
+  postgres_data:
