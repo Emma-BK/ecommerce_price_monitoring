@@ -10,8 +10,16 @@ API **production-ready** pour collecter, stocker et analyser l'historique des pr
 
 ---
 
+## 🔗 Liens du projet
+
+- **Dépôt GitHub :** https://github.com/Emma-BK/ecommerce_price_monitoring.git
+- **Application déployée (Netlify) :** https://projectpricemonitoring.netlify.app/
+
+---
+
 ## 📑 Sommaire
 
+- [Liens du projet](#-liens-du-projet)
 - [Fonctionnalités](#-fonctionnalités)
 - [Stack technique](#-stack-technique)
 - [Structure du projet](#-structure-du-projet)
